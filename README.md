@@ -4,7 +4,7 @@
 
 ##**Before you try to execute this script make sure you allow less secure app access in your google account**##
 
-To allow less secure apps click [here to go to your google account](https://myaccount.google.com/lesssecureapps/).
+To allow less secure apps click [here to go to your google account]( https://myaccount.google.com/lesssecureapps ).
 
 Once you allow this your script should be ready to use, once you add your account credentials and make other personalizations.
 
