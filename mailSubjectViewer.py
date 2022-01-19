@@ -1,10 +1,10 @@
 #This script gives you the subject of mails received from a given list of mail addresses
 import imaplib
-import re
 
 
-user = 'YOUR GMAIL ADDRESS'
-password = 'YOUR PASSWORD'
+
+user = 'YOUR_GMAIL_ID'
+password = 'YOUR_PASSWORD'
 
 mail = imaplib.IMAP4_SSL('imap.gmail.com')
 mail.login(user, password)
@@ -28,23 +28,22 @@ def readMails(address):
     # contains all information including payloads and html content
 
     index_start1 = basic_email.index(b'Subject')           #Starting index for your subject
-    index_end1 = index_start1 + 30                         # Change the value of 30 into any other value to suit your preferences
+    index_end1 = index_start1 + 40                         # Change the value of 40 into any other value to suit your preferences
     
 
     subject = basic_email[index_start1:index_end1]           #seperating the subject alone from the rest of the basic email
     
 
     
-    subject = subject.strip(b'b\'Subject: ')               #removing additional unneccessary data from the subject
-   
+    subject = subject.strip(b'b\'Subject:')               #removing additional unneccessary data from the subject
+    subject_end = subject.index(b'\r')
 
     print('-------FROM '+address+'-------\n\n')                        #Printing the emails
-    print("Subject: ", subject[0:index_end1], '\n\n')
+    print("Subject: ", subject[0:subject_end], '\n\n')
    
 
 
-listOfMails = ['mail1@gmail.com',
-               'mail2@gmail.com', 'mail3gmail.com', 'mail4@gmail.com', 'mail5@gmail.com']           #Modify the list contents here to suit you. If you would like to view mails 
+listOfMails = ['mail1@gmail.com','mail2@gmail.com']           #Modify the list contents here to suit you. If you would like to view mails 
                                                                                                     #  from say, 'abc@gmail.com' change 'mail1@gmail.com' to 'abc@gmail.com'
 for addresses in listOfMails:
     readMails(addresses)
